@@ -1,0 +1,18 @@
+[
+    {
+        "pk": 1,
+        "model": "sites.site",
+        "fields": {
+            "domain": "localhost:8000",
+            "name": "Northwest Alabama Software Developers"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "sites.site",
+        "fields": {
+            "domain": "nwalsdev.herokuapp.com",
+            "name": "Northwest Alabama Software Developers"
+        }
+    }
+]
