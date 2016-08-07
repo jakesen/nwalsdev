@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block head_title %}pinax-project-account{% endblock %}
+{% block head_title %}Florence Coders Lunch{% endblock %}
 
 {% block body_class %}home{% endblock %}
 
@@ -10,21 +10,21 @@
     <section class="jumbotron">
         <div class="container">
             {% include "_messages.html" %}
-            <h1>{% blocktrans %}Florence Coder Lunch{% endblocktrans %}</h1>
+            <h1>{% blocktrans %}Florence Coders Lunch{% endblocktrans %}</h1>
             <p>
                 {% blocktrans %}
-                Every Thursday, Coders from around the Shoals meet to have face-to-face human interaction. Slack channels can only go so far, right?
+                <p>Every Thursday, Coders from around the Shoals meet to have face-to-face human interaction. Slack channels can only go so far, right?</p>
 
-                Hang out, eat food, discuss coding!
+                <p>Hang out, eat food, discuss coding!</p>
 
-                Sign in to let us know which events you can make and where you want to eat!
+                <p>Sign in to let us know which events you can make and where you want to eat!</p>
                 {% endblocktrans %}
             </p>
             {% if not user.is_authenticated %}
             {% url "account_login" as login_url %}
             {% url "account_signup" as signup_url %}
-            <p>{% blocktrans %} <a href="{{ login_url }}" class="btn btn-default">Log In</a> to see upcoming lunches, or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> if you haven't already!
-            {% endblocktrans %}</p>
+            <h2>{% blocktrans %} <a href="{{ login_url }}" class="btn btn-default">Log In</a> to see upcoming lunches, or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> if you haven't already!
+            {% endblocktrans %}</h2>
             {% endif %}
         </div>
     </section>

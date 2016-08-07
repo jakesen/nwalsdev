@@ -9,8 +9,17 @@ DEBUG = True
 
 import dj_database_url
 DATABASES = {
-    "default": dj_database_url.config()
+    "default": dj_database_url.config(),
 }
+
+# database required for local dev
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': 'mydatabase',
+#    }
+# }
+
 
 ALLOWED_HOSTS = []
 
