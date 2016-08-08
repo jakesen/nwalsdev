@@ -3,6 +3,7 @@
 
 
 <ul class="nav navbar-nav pull-right">
+    <li><a href="http://www.tech256.com">{% trans "Join Tech256 on Slack" %}</a></li>
     {% if request.user.is_authenticated %}
         <p class="navbar-text">
             <i class="fa fa-user"></i> {% user_display request.user %}

@@ -11,20 +11,18 @@
         <div class="container">
             {% include "_messages.html" %}
             <h1>{% blocktrans %}Florence Coders Lunch{% endblocktrans %}</h1>
+            <h2> <p>Hang out, eat food, discuss coding!</p></h2>
             <p>
                 {% blocktrans %}
-                <p>Every Thursday, Coders from around the Shoals meet to have face-to-face human interaction. Slack channels can only go so far, right?</p>
+                <p>Every Thursday, coders from around the Shoals meet to have face-to-face human interaction. <a href="http://www.tech256.com">Slack channels</a> can only go so far, right?</p>
 
-                <p>Hang out, eat food, discuss coding!</p>
-
-                <p>Sign in to let us know which events you can make and where you want to eat!</p>
                 {% endblocktrans %}
             </p>
             {% if not user.is_authenticated %}
             {% url "account_login" as login_url %}
             {% url "account_signup" as signup_url %}
-            <h2>{% blocktrans %} <a href="{{ login_url }}" class="btn btn-default">Log In</a> to see upcoming lunches, or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> if you haven't already!
-            {% endblocktrans %}</h2>
+            <p>{% blocktrans %} <a href="{{ login_url }}" class="btn btn-default">Log In</a> to see upcoming lunches and events, or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> if you haven't already.
+            {% endblocktrans %}</p>
             {% endif %}
         </div>
     </section>
