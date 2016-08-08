@@ -4,3 +4,5 @@ _build/
 dev.db
 site_media/
 env
+mydatabase
+requests

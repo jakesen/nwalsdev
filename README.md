@@ -24,3 +24,4 @@ pip install -r requirements.txt
 	- Confirmation
 	- Reminder
 	- Upcoming events?
+	- Tech256.com homepage link
