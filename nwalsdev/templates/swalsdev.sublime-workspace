@@ -1,0 +1,445 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"badge",
+				"badgeCount"
+			],
+			[
+				"be",
+				"belongs_to"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/bjk/dev/pythondev/nwalsdev/nwalsdev/settings.py",
+			"settings":
+			{
+				"buffer_size": 6286,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bjk/dev/pythondev/nwalsdev/.gitignore",
+			"settings":
+			{
+				"buffer_size": 70,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bjk/dev/pythondev/nwalsdev/README.md",
+			"settings":
+			{
+				"buffer_size": 531,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "account/login.html",
+			"settings":
+			{
+				"buffer_size": 1972,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/bjk/dev/pythondev",
+		"/home/bjk/dev/pythondev/nwalsdev",
+		"/home/bjk/dev/pythondev/nwalsdev/gulp/config",
+		"/home/bjk/dev/pythondev/nwalsdev/gulp/tasks",
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev",
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev/templates",
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev/templates/account",
+		"/home/bjk/dev/pythondev/nwalsdev/static/dist",
+		"/home/bjk/dev/pythondev/nwalsdev/static/dist/css",
+		"/home/bjk/dev/pythondev/nwalsdev/static/dist/fonts",
+		"/home/bjk/dev/pythondev/nwalsdev/static/dist/js",
+		"/home/bjk/dev/pythondev/nwalsdev/static/src",
+		"/home/bjk/dev/pythondev/nwalsdev/static/src/hbs",
+		"/home/bjk/dev/pythondev/nwalsdev/static/src/js",
+		"/home/bjk/dev/pythondev/nwalsdev/static/src/less"
+	],
+	"file_history":
+	[
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev/templates/homepage.html",
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev/templates/_account_bar.html",
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev/templates/account/login.html",
+		"/home/bjk/dev/pythondev/nwalsdev/.gitignore",
+		"/usr/local/lib/python2.7/dist-packages/django/core/management/__init__.py",
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev/templates/site_base.html",
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev/templates/_footer.html",
+		"/home/bjk/dev/pythondev/nwalsdev/nwalsdev/wsgi.py",
+		"/home/bjk/pythondev/nwalsdev/nwalsdev/templates/_footer.html",
+		"/home/bjk/webdev/betheshow/wp-load.php",
+		"/home/bjk/webdev/betheshow/widgets.php",
+		"/home/bjk/webdev/betheshow/pluggable.php",
+		"/home/bjk/webdev/betheshow/functions.php",
+		"/home/bjk/rubydev/simple_module.rb",
+		"/home/bjk/rubydev/laser_bots.rb",
+		"/home/bjk/rubydev/untitled",
+		"/home/bjk/gamedev/gosu/main.rb",
+		"/home/bjk/gamedev/tut/main.rb",
+		"/home/bjk/gamedev/gosu/space.png",
+		"/home/bjk/gamedev/main.rb",
+		"/home/bjk/gamedev/frog/game.js",
+		"/home/bjk/gamedev/frog/index.html",
+		"/home/bjk/railsdev/betheshow/README.md",
+		"/home/bjk/railsdev/glass/README.md",
+		"/home/bjk/railsdev/glass/Gemfile",
+		"/home/bjk/nodejs/app.js",
+		"/home/bjk/railsdev/glass/app/views/clients/index.html.erb",
+		"/home/bjk/railsdev/glass/app/controllers/clients_controller.rb",
+		"/home/bjk/railsdev/glass/app/views/layouts/_header.html.erb",
+		"/home/bjk/railsdev/glass/app/controllers/sessions_controller.rb",
+		"/home/bjk/railsdev/glass/Gemfile.lock",
+		"/home/bjk/railsdev/biller/app/models/account.rb",
+		"/home/bjk/railsdev/biller/app/models/project.rb",
+		"/home/bjk/railsdev/biller/app/models/account_entry.rb",
+		"/home/bjk/railsdev/biller/app/models/time_entry.rb",
+		"/home/bjk/railsdev/biller/app/controllers/accounts_controller.rb",
+		"/home/bjk/railsdev/biller/config/routes.rb",
+		"/home/bjk/railsdev/biller/app/views/accounts/index.html.erb",
+		"/home/bjk/railsdev/biller/app/views/accounts/show.html.erb",
+		"/home/bjk/railsdev/biller/db/migrate/20160716225047_omg_i_forgot_the_type_field.rb",
+		"/home/bjk/railsdev/biller/app/models/employee.rb",
+		"/home/bjk/railsdev/biller/app/models/customer.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160716215429_employees_projects.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160716215348_create_projects.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160716211239_account_entries.rb",
+		"/home/bjk/railsdev/biller/db/schema.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160716204917_remove_old_tables.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160716204535_create_accounts.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160716183810_account_entries.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715222618_remove_old_tables.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715222337_create_accounts.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715215507_create_time_entries.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715215754_create_employees.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715214913_add_email_address.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715210002_create_customers.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715211906_create_time_entries.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715212221_create_employees.rb",
+		"/home/bjk/railsdev/biller/db/migrate/20160715211514_add_email_address.rb",
+		"/home/bjk/railsdev/biller/Gemfile",
+		"/home/bjk/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/bjk/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"/home/bjk/dev/pythondev/nwalsdev",
+			"/home/bjk/dev/pythondev",
+			"/home/bjk/dev/pythondev/nwalsdev/nwalsdev",
+			"/home/bjk/dev/pythondev",
+			"/home/bjk/dev/pythondev/nwalsdev"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"site",
+			"fixed-top",
+			"fixed",
+			"navbar-fixed",
+			"navbar",
+			"example.com",
+			"title",
+			"example",
+			"account_tags",
+			"SITE_NAME",
+			"example.com",
+			"base",
+			"site_name",
+			"example.com",
+			"engine",
+			"headers",
+			"Headers",
+			"headers",
+			"Headers",
+			"headers",
+			"Headers",
+			"headers",
+			"Headers",
+			"headers",
+			"Headers",
+			"headers",
+			"Headers",
+			"headers",
+			"Headers",
+			"headers",
+			"Headers",
+			"headers",
+			"Headers",
+			"headers",
+			"message_headers",
+			"header"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/bjk/dev/pythondev/nwalsdev/nwalsdev/settings.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6286,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1055,
+								1055
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 252.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/bjk/dev/pythondev/nwalsdev/.gitignore",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 70,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								70,
+								70
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/bjk/dev/pythondev/nwalsdev/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 531,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								531,
+								531
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Markdown/Markdown.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "account/login.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1972,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								52,
+								52
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 22.0
+	},
+	"input":
+	{
+		"height": 30.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "swalsdev.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"APP_PATH"
+			]
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 275.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
