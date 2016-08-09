@@ -7,10 +7,19 @@ BASE_DIR = PACKAGE_ROOT
 
 DEBUG = True
 
-import dj_database_url
+# import dj_database_url
+# DATABASES = {
+#   "default": dj_database_url.config(),
+#}
+
+# database required for local dev
 DATABASES = {
-    "default": dj_database_url.config()
+   'default': {
+       'ENGINE': 'django.db.backends.sqlite3',
+       'NAME': 'mydatabase',
+   }
 }
+
 
 ALLOWED_HOSTS = []
 
@@ -27,7 +36,7 @@ TIME_ZONE = "UTC"
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = "en-us"
 
-SITE_ID = int(os.environ.get("SITE_ID", 1))
+SITE_ID = int(os.environ.get("SITE_ID", 2))
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.

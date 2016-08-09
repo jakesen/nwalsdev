@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block head_title %}pinax-project-account{% endblock %}
+{% block head_title %}Florence Coders Lunch{% endblock %}
 
 {% block body_class %}home{% endblock %}
 
@@ -10,22 +10,29 @@
     <section class="jumbotron">
         <div class="container">
             {% include "_messages.html" %}
-            <h1>{% blocktrans %}Welcome to<br>pinax-project-account{% endblocktrans %}</h1>
+            <h1>{% blocktrans %}Florence Coders Lunch{% endblocktrans %}</h1>
+            <h2> <p>Hang out, eat food, discuss coding!</p></h2>
             <p>
                 {% blocktrans %}
-                In addition to what is provided by the "zero" project, this project
-                provides thorough integration with django-user-accounts, adding
-                comprehensive account management functionality. It is a foundation
-                suitable for most sites that have user accounts.
+                <p>Every Thursday, coders from around the Shoals meet to have face-to-face human interaction. <a href="http://www.tech256.com">Slack channels</a> can only go so far, right?</p>
+
                 {% endblocktrans %}
             </p>
             {% if not user.is_authenticated %}
             {% url "account_login" as login_url %}
             {% url "account_signup" as signup_url %}
-            <p>{% blocktrans %}You can <a href="{{ login_url }}" class="btn btn-default">Log In</a> or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> to try out the site.{% endblocktrans %}</p>
+            <p>{% blocktrans %} <a href="{{ login_url }}" class="btn btn-default">Log In</a> to see upcoming lunches and events, or <a href="{{ signup_url }}" class="btn btn-primary">Sign Up</a> if you haven't already.
+            {% endblocktrans %}</p>
             {% endif %}
         </div>
     </section>
+
+<!-- Commenting this section out so we can decide what goes here --> 
+<!-- IMO this should be a <section> that pulls from the next lunch event -->
+<!-- Should have an RSVP yes/no button that redirects to login if not logged in -->
+<!-- Probably a "See All Upcoming Events" button would be a good idea, too -->
+
+<!--
     <section>
         <div class="container">
             <h2 class="text-center">{% blocktrans %}What is Pinax?{% endblocktrans %}</h2>
@@ -73,5 +80,6 @@
                 {% endblocktrans %}
             </p>
         </div>
-    </section>
+    </section> -->
+    
 {% endblock %}
