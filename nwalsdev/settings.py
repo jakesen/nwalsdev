@@ -12,6 +12,7 @@ if os.environ.has_key('DATABASE_URL'):
     DATABASES = {
         "default": dj_database_url.config(),
     }
+    ADMINS = [os.environ.get('ADMINS','').split(',')]
 else:
     DEBUG = True
     # database required for local dev
@@ -23,7 +24,7 @@ else:
     }
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nwalsdev.herokuapp.com']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
