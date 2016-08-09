@@ -5,20 +5,22 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir
 PACKAGE_ROOT = os.path.abspath(os.path.dirname(__file__))
 BASE_DIR = PACKAGE_ROOT
 
-DEBUG = True
-
-# import dj_database_url
-# DATABASES = {
-#   "default": dj_database_url.config(),
-#}
-
-# database required for local dev
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': 'mydatabase',
-   }
-}
+if os.environ.has_key('DATABASE_URL'):
+    # production environment on Heroku
+    DEBUG = False
+    import dj_database_url
+    DATABASES = {
+        "default": dj_database_url.config(),
+    }
+else:
+    DEBUG = True
+    # database required for local dev
+    DATABASES = {
+       'default': {
+           'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': 'mydatabase',
+       }
+    }
 
 
 ALLOWED_HOSTS = []
