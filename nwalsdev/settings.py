@@ -149,6 +149,7 @@ INSTALLED_APPS = [
 
     # project
     "nwalsdev",
+    "nwalsdev.meetup"
 ]
 
 # A sample logging configuration. The only tangible logging

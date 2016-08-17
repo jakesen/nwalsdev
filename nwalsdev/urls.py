@@ -12,6 +12,7 @@ urlpatterns = [
     url(r"^account/", include("account.urls")),
     url(r"^account/social/accounts/$", TemplateView.as_view(template_name="account/social.html"), name="account_social_accounts"),
     url(r"^account/social/", include("social.apps.django_app.urls", namespace="social")),
+    url(r"^upcoming/", "nwalsdev.meetup.views.upcoming"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
