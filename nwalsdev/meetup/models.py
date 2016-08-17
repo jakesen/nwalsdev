@@ -11,6 +11,9 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
+    def full_address(self):
+        return self.address+' '+self.city+' '+self.state
+
 
 class Meetup(models.Model):
     title = models.CharField(max_length=254)
