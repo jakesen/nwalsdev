@@ -9,7 +9,7 @@ class Location(models.Model):
     state = models.CharField(max_length=254, blank=True)
 
     def __str__(self):
-        self.name
+        return self.name
 
 
 class Meetup(models.Model):
@@ -19,4 +19,4 @@ class Meetup(models.Model):
     start_time = models.DateTimeField()
 
     def __str__(self):
-        self.title
+        return self.title
