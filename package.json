@@ -13,8 +13,7 @@
   "dependencies": {
     "bootstrap": "^3.3.6",
     "font-awesome": "^4.5.0",
-    "jquery": "^2.1.4",
-    "babelify": "^7.2.0"
+    "jquery": "^2.1.4"
   },
   "babel": {
     "presets": [
@@ -79,6 +78,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-1": "^6.3.13",
     "babelify": "^7.2.0",
+    "babel-register": "^6.11.6",
     "browserify": "^12.0.1",
     "browserify-hmr": "^0.3.1",
     "del": "^2.2.0",
