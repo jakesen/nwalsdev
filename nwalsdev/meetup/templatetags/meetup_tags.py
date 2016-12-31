@@ -11,4 +11,4 @@ register = template.Library()
 def upcoming_meetups(user):
     if user.is_authenticated:
         two_hours = 2 * 60 * 60
-        return Meetup.objects.filter(start_time__gt=timezone.now()+timedelta(seconds=two_hours))
+        return Meetup.objects.filter(start_time__gt=timezone.now()-timedelta(seconds=two_hours))
