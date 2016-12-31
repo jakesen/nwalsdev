@@ -1,6 +1,7 @@
 {% extends "site_base.html" %}
 
 {% load i18n %}
+{% load meetup_tags %}
 
 {% block head_title %}Florence Coders Lunch{% endblock %}
 
@@ -27,7 +28,27 @@
         </div>
     </section>
 
-<!-- Commenting this section out so we can decide what goes here --> 
+    {% if user.is_authenticated %}
+      {% for meetup in user|upcoming_meetups %}
+      <section class="">
+          <div class="container">
+            <h2>{{ meetup.title }}</h2>
+            <p>{{ meetup.description }}</p>
+            <dl>
+              <dt>Where</dt>
+              <dd>
+                {{ meetup.location.name }}<br />
+                {{ meetup.location.full_address }}
+              </dd>
+              <dt>When</dt>
+              <dd>{{ meetup.start_time }}</dd>
+            </dl>
+          </div>
+        </section>
+      {% endfor %}
+    {% endif %}
+
+<!-- Commenting this section out so we can decide what goes here -->
 <!-- IMO this should be a <section> that pulls from the next lunch event -->
 <!-- Should have an RSVP yes/no button that redirects to login if not logged in -->
 <!-- Probably a "See All Upcoming Events" button would be a good idea, too -->
@@ -81,5 +102,5 @@
             </p>
         </div>
     </section> -->
-    
+
 {% endblock %}
