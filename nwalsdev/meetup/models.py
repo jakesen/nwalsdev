@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
+from django.contrib.auth.models import User
 
 class Location(models.Model):
     name = models.CharField(max_length=254)
@@ -23,3 +24,12 @@ class Meetup(models.Model):
 
     def __str__(self):
         return self.title
+
+class RSVP(models.Model):
+    meetup = models.ForeignKey(Meetup)
+    user = models.ForeignKey(User)
+    attending = models.BooleanField()
+    additional_guests = models.IntegerField()
+
+    def __str__(self):
+        return self.user.get_full_name()
