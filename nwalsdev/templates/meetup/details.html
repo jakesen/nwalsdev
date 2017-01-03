@@ -20,6 +20,8 @@
           </dd>
           <dt>When</dt>
           <dd>{{ meetup.start_time }}</dd>
+          <dt>Who</dt>
+          <dd>{{ meetup.attendee_count }} attendees: {{ meetup.attendee_list|join:", " }}</dd>
         </dl>
         {% if user|attending:meetup %}
           <p>You have <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP'd</a> to this meetup.</p>

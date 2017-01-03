@@ -1,6 +1,6 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
-from nwalsdev.meetup.models import Location, Meetup
+from nwalsdev.meetup.models import Location, Meetup, RSVP
 from datetime import timedelta
 from django.utils import timezone
 
@@ -17,6 +17,14 @@ class TestMeetups(TestCase):
             start_time=timezone.now()+timedelta(days=1)
         )
         self.test_meetup.save()
+
+        rsvp_user = User.objects.create(username="jill")
+        rsvp = RSVP.objects.create(
+            meetup=self.test_meetup,
+            user=rsvp_user,
+            attending=True,
+            additional_guests=2
+        )
 
         test_user = User(username="joe")
         test_user.set_password('password')
@@ -46,6 +54,7 @@ class TestMeetups(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"Coders Lunch")
         self.assertContains(response,"123 Main Street")
+        self.assertContains(response,"3 attendees: jill + 2 guests")
 
     def test_rsvp(self):
         meetup_url = self.test_meetup.get_absolute_url()
@@ -61,7 +70,7 @@ class TestMeetups(TestCase):
         # saves rsvp values
         self.client.post(rsvp_url, { 'attending':True, 'additional_guests':0 })
         attending_users = self.test_meetup.rsvp_set.filter(attending=True).count()
-        self.assertEqual(attending_users, 1)
+        self.assertEqual(attending_users, 2)
         # rsvp status is reflected in details
         response = self.client.get(meetup_url)
         self.assertContains(response,"RSVP'd")
