@@ -22,6 +22,9 @@ class Meetup(models.Model):
     location = models.ForeignKey(Location)
     start_time = models.DateTimeField()
 
+    def get_absolute_url(self):
+        return '/meetups/'+str(self.id)+'/'
+
     def __str__(self):
         return self.title
 

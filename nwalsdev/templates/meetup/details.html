@@ -1,0 +1,25 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{{ meetup.title }}{% endblock %}
+
+{% block body_class %}home{% endblock %}
+
+{% block body_base %}
+  <section class="">
+      <div class="container">
+        <h2>{{ meetup.title }}</h2>
+        <p>{{ meetup.description }}</p>
+        <dl>
+          <dt>Where</dt>
+          <dd>
+            {{ meetup.location.name }}<br />
+            {{ meetup.location.full_address }}
+          </dd>
+          <dt>When</dt>
+          <dd>{{ meetup.start_time }}</dd>
+        </dl>
+      </div>
+    </section>
+{% endblock %}

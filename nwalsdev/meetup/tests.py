@@ -10,17 +10,23 @@ class TestMeetups(TestCase):
             address="123 Main Street"
         )
         test_location.save()
-        test_meetup = Meetup(
+        self.test_meetup = Meetup(
             title="Coders Lunch",
             location=test_location,
             start_time=timezone.now()+timedelta(days=1)
         )
-        test_meetup.save()
+        self.test_meetup.save()
 
         #self.client = Client()
 
     def test_upcoming(self):
         response = self.client.get("/meetups/upcoming/")
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response,"Coders Lunch")
+        self.assertContains(response,"123 Main Street")
+
+    def test_details(self):
+        response = self.client.get(self.test_meetup.get_absolute_url())
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"Coders Lunch")
         self.assertContains(response,"123 Main Street")
