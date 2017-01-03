@@ -1,6 +1,7 @@
 {% extends "site_base.html" %}
 
 {% load i18n %}
+{% load meetup_tags %}
 
 {% block head_title %}{{ meetup.title }}{% endblock %}
 
@@ -20,7 +21,11 @@
           <dt>When</dt>
           <dd>{{ meetup.start_time }}</dd>
         </dl>
-        <p>Do you want to <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP?</a></p>
+        {% if user|attending:meetup %}
+          <p>You have <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP'd</a> to this meetup.</p>
+        {% else %}
+          <p>Do you want to <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP?</a></p>
+        {% endif %}
       </div>
     </section>
 {% endblock %}

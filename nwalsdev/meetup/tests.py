@@ -25,22 +25,35 @@ class TestMeetups(TestCase):
         self.client = Client()
 
     def test_upcoming(self):
+        # requires login
+        response = self.client.get("/meetups/upcoming/")
+        self.assertEqual(response.status_code, 302)
+        # returns upcoming meetup list if user is authenticated
+        self.client.login(username='joe', password='password')
         response = self.client.get("/meetups/upcoming/")
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"Coders Lunch")
         self.assertContains(response,"123 Main Street")
 
     def test_details(self):
-        response = self.client.get(self.test_meetup.get_absolute_url())
+        meetup_url = self.test_meetup.get_absolute_url()
+        # requires login
+        response = self.client.get(meetup_url)
+        self.assertEqual(response.status_code, 302)
+        # returns meetup details if user is authenticated
+        self.client.login(username='joe', password='password')
+        response = self.client.get(meetup_url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"Coders Lunch")
         self.assertContains(response,"123 Main Street")
 
     def test_rsvp(self):
-        rsvp_url = self.test_meetup.get_absolute_url()+'rsvp/'
+        meetup_url = self.test_meetup.get_absolute_url()
+        rsvp_url = meetup_url+'rsvp/'
         # requires login
         response = self.client.get(rsvp_url)
         self.assertEqual(response.status_code, 302)
+        # returns rsvp form if user is authenticated
         self.client.login(username='joe', password='password')
         response = self.client.get(rsvp_url)
         self.assertEqual(response.status_code, 200)
@@ -49,3 +62,6 @@ class TestMeetups(TestCase):
         self.client.post(rsvp_url, { 'attending':True, 'additional_guests':0 })
         attending_users = self.test_meetup.rsvp_set.filter(attending=True).count()
         self.assertEqual(attending_users, 1)
+        # rsvp status is reflected in details
+        response = self.client.get(meetup_url)
+        self.assertContains(response,"RSVP'd")
