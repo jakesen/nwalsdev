@@ -20,6 +20,7 @@
           <dt>When</dt>
           <dd>{{ meetup.start_time }}</dd>
         </dl>
+        <p>Do you want to <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP?</a></p>
       </div>
     </section>
 {% endblock %}

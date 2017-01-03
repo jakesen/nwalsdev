@@ -31,8 +31,8 @@ class Meetup(models.Model):
 class RSVP(models.Model):
     meetup = models.ForeignKey(Meetup)
     user = models.ForeignKey(User)
-    attending = models.BooleanField()
-    additional_guests = models.IntegerField()
+    attending = models.BooleanField(default=False)
+    additional_guests = models.IntegerField(default=0)
 
     def __str__(self):
         return self.user.get_full_name()
