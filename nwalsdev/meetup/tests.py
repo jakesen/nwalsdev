@@ -1,5 +1,6 @@
-from django.test import TestCase
-from nwalsdev.meetup.models import Location, Meetup
+from django.test import TestCase, Client
+from django.contrib.auth.models import User
+from nwalsdev.meetup.models import Location, Meetup, RSVP
 from datetime import timedelta
 from django.utils import timezone
 
@@ -10,17 +11,66 @@ class TestMeetups(TestCase):
             address="123 Main Street"
         )
         test_location.save()
-        test_meetup = Meetup(
+        self.test_meetup = Meetup(
             title="Coders Lunch",
             location=test_location,
             start_time=timezone.now()+timedelta(days=1)
         )
-        test_meetup.save()
+        self.test_meetup.save()
 
-        #self.client = Client()
+        rsvp_user = User.objects.create(username="jill")
+        rsvp = RSVP.objects.create(
+            meetup=self.test_meetup,
+            user=rsvp_user,
+            attending=True,
+            additional_guests=2
+        )
+
+        test_user = User(username="joe")
+        test_user.set_password('password')
+        test_user.save()
+
+        self.client = Client()
 
     def test_upcoming(self):
-        response = self.client.get("/upcoming/")
+        # requires login
+        response = self.client.get("/meetups/upcoming/")
+        self.assertEqual(response.status_code, 302)
+        # returns upcoming meetup list if user is authenticated
+        self.client.login(username='joe', password='password')
+        response = self.client.get("/meetups/upcoming/")
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"Coders Lunch")
         self.assertContains(response,"123 Main Street")
+
+    def test_details(self):
+        meetup_url = self.test_meetup.get_absolute_url()
+        # requires login
+        response = self.client.get(meetup_url)
+        self.assertEqual(response.status_code, 302)
+        # returns meetup details if user is authenticated
+        self.client.login(username='joe', password='password')
+        response = self.client.get(meetup_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response,"Coders Lunch")
+        self.assertContains(response,"123 Main Street")
+        self.assertContains(response,"3 attendees: jill + 2 guests")
+
+    def test_rsvp(self):
+        meetup_url = self.test_meetup.get_absolute_url()
+        rsvp_url = meetup_url+'rsvp/'
+        # requires login
+        response = self.client.get(rsvp_url)
+        self.assertEqual(response.status_code, 302)
+        # returns rsvp form if user is authenticated
+        self.client.login(username='joe', password='password')
+        response = self.client.get(rsvp_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response,"Coders Lunch")
+        # saves rsvp values
+        self.client.post(rsvp_url, { 'attending':True, 'additional_guests':0 })
+        attending_users = self.test_meetup.rsvp_set.filter(attending=True).count()
+        self.assertEqual(attending_users, 2)
+        # rsvp status is reflected in details
+        response = self.client.get(meetup_url)
+        self.assertContains(response,"RSVP'd")

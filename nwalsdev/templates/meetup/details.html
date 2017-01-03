@@ -3,15 +3,14 @@
 {% load i18n %}
 {% load meetup_tags %}
 
-{% block head_title %}Upcoming Meetups{% endblock %}
+{% block head_title %}{{ meetup.title }}{% endblock %}
 
 {% block body_class %}home{% endblock %}
 
 {% block body_base %}
-  {% for meetup in user|upcoming_meetups %}
   <section class="">
       <div class="container">
-        <h2><a href="{{ meetup.get_absolute_url }}">{{ meetup.title }}</a></h2>
+        <h2>{{ meetup.title }}</h2>
         <p>{{ meetup.description }}</p>
         <dl>
           <dt>Where</dt>
@@ -21,8 +20,14 @@
           </dd>
           <dt>When</dt>
           <dd>{{ meetup.start_time }}</dd>
+          <dt>Who</dt>
+          <dd>{{ meetup.attendee_count }} attendees: {{ meetup.attendee_list|join:", " }}</dd>
         </dl>
+        {% if user|attending:meetup %}
+          <p>You have <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP'd</a> to this meetup.</p>
+        {% else %}
+          <p>Do you want to <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP?</a></p>
+        {% endif %}
       </div>
     </section>
-  {% endfor %}
 {% endblock %}
