@@ -20,7 +20,7 @@ class TestMeetups(TestCase):
         #self.client = Client()
 
     def test_upcoming(self):
-        response = self.client.get("/upcoming/")
+        response = self.client.get("/meetups/upcoming/")
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"Coders Lunch")
         self.assertContains(response,"123 Main Street")
