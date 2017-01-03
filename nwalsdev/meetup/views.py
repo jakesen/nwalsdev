@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 from .models import Meetup, RSVP
 from .forms import RSVPForm
@@ -11,6 +12,7 @@ def details(request, meetup_id):
     meetup = get_object_or_404(Meetup, pk=meetup_id)
     return render(request, 'meetup/details.html', { 'meetup': meetup })
 
+@login_required
 def rsvp(request, meetup_id):
     meetup = get_object_or_404(Meetup, pk=meetup_id)
     rsvp, created = RSVP.objects.get_or_create(meetup=meetup, user=request.user)
