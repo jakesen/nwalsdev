@@ -27,7 +27,7 @@ class TestMeetups(TestCase):
             additional_guests=2
         )
 
-        test_user = User(username="joe", email="joe@nwalsdev.org")
+        test_user = User(username="joe", email="joe@nwalsdev.org", is_superuser=True)
         test_user.set_password('password')
         test_user.save()
 
@@ -78,7 +78,7 @@ class TestMeetups(TestCase):
 
     def test_announcement_email(self):
         # Send message.
-        self.test_meetup.send_announcement_email()
+        self.assertEqual(self.test_meetup.send_announcement_email(), 2)
         # Test that one message has been sent to each user
         self.assertEqual(len(mail.outbox), User.objects.all().count())
         # Verify that the subject and body of the first message is correct.
@@ -86,3 +86,9 @@ class TestMeetups(TestCase):
             mail.outbox[0].subject,
             "New Meetup: Coders Lunch"
         )
+
+    def test_announcement_email_test(self):
+        # Send message.
+        self.assertEqual(self.test_meetup.test_announcement_email(), 1)
+        # Test that one message has been sent to each user
+        self.assertEqual(len(mail.outbox), User.objects.filter(is_superuser=True).count())

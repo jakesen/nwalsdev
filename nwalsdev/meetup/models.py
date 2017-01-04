@@ -26,11 +26,15 @@ class Meetup(models.Model):
     location = models.ForeignKey(Location)
     start_time = models.DateTimeField()
 
-    def send_announcement_email(self):
+    def test_announcement_email(self):
+        return self.send_announcement_email(User.objects.filter(is_superuser=True))
+
+    def send_announcement_email(self, recipient_users=User.objects.all()):
         site = Site.objects.get_current()
         plain_body = render_to_string('meetup/emails/announcement.txt', { 'site': site, 'meetup': self })
         html_body = render_to_string('meetup/emails/announcement.html', { 'site': site, 'meetup': self })
-        for user in User.objects.all():
+        email_count = 0
+        for user in recipient_users:
             email = EmailMultiAlternatives(
                 "New Meetup: "+self.title,
                 plain_body,
@@ -39,6 +43,8 @@ class Meetup(models.Model):
             )
             email.attach_alternative(html_body, "text/html")
             email.send()
+            email_count += 1
+        return email_count
 
     def attendee_count(self):
         attendees = self.rsvp_set.filter(attending=True)
