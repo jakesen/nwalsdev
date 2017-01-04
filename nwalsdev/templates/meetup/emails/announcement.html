@@ -1,0 +1,14 @@
+<h3>{{ site.name }} has Scheduled a New Meetup:</h3>
+<h2><a href="http://{{ site.domain }}{{ meetup.get_absolute_url }}">{{ meetup.title }}</a></h2>
+<p>{{ meetup.description }}</p>
+<dl>
+  <dt>Where</dt>
+  <dd>
+    {{ meetup.location.name }}<br />
+    {{ meetup.location.full_address }}
+  </dd>
+  <dt>When</dt>
+  <dd>{{ meetup.start_time }}</dd>
+  <dt>Who</dt>
+  <dd>{{ meetup.attendee_count }} attendees (<a href="http://{{ site.domain }}{{ meetup.get_absolute_url }}rsvp/">RSVP here</a>)</dd>
+</dl>

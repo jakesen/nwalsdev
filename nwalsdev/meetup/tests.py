@@ -1,5 +1,6 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from django.core import mail
 from nwalsdev.meetup.models import Location, Meetup, RSVP
 from datetime import timedelta
 from django.utils import timezone
@@ -18,7 +19,7 @@ class TestMeetups(TestCase):
         )
         self.test_meetup.save()
 
-        rsvp_user = User.objects.create(username="jill")
+        rsvp_user = User.objects.create(username="jill", email="jill@nwalsdev.org")
         rsvp = RSVP.objects.create(
             meetup=self.test_meetup,
             user=rsvp_user,
@@ -26,7 +27,7 @@ class TestMeetups(TestCase):
             additional_guests=2
         )
 
-        test_user = User(username="joe")
+        test_user = User(username="joe", email="joe@nwalsdev.org", is_superuser=True)
         test_user.set_password('password')
         test_user.save()
 
@@ -74,3 +75,20 @@ class TestMeetups(TestCase):
         # rsvp status is reflected in details
         response = self.client.get(meetup_url)
         self.assertContains(response,"RSVP'd")
+
+    def test_announcement_email(self):
+        # Send message.
+        self.assertEqual(self.test_meetup.send_announcement_email(), 2)
+        # Test that one message has been sent to each user
+        self.assertEqual(len(mail.outbox), User.objects.all().count())
+        # Verify that the subject and body of the first message is correct.
+        self.assertEqual(
+            mail.outbox[0].subject,
+            "New Meetup: Coders Lunch"
+        )
+
+    def test_announcement_email_test(self):
+        # Send message.
+        self.assertEqual(self.test_meetup.test_announcement_email(), 1)
+        # Test that one message has been sent to each user
+        self.assertEqual(len(mail.outbox), User.objects.filter(is_superuser=True).count())
