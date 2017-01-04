@@ -9,10 +9,9 @@ register = template.Library()
 
 @register.filter
 def upcoming_meetups(user):
-    if user.is_authenticated():
-        two_hours_ago = timezone.now() - timedelta(seconds=2*60*60)
-        upcoming_meetups = Meetup.objects.filter(start_time__gt=two_hours_ago)
-        return upcoming_meetups.select_related('location').order_by('start_time')
+    two_hours_ago = timezone.now() - timedelta(seconds=2*60*60)
+    upcoming_meetups = Meetup.objects.filter(start_time__gt=two_hours_ago)
+    return upcoming_meetups.select_related('location').order_by('start_time')
 
 @register.filter
 def attending(user, meetup):

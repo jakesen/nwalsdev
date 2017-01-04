@@ -5,11 +5,9 @@ from django.contrib.auth.decorators import login_required
 from .models import Meetup, RSVP
 from .forms import RSVPForm
 
-@login_required
 def upcoming(request):
     return render(request, 'meetup/upcoming.html')
 
-@login_required
 def details(request, meetup_id):
     meetup = get_object_or_404(Meetup, pk=meetup_id)
     return render(request, 'meetup/details.html', { 'meetup': meetup })

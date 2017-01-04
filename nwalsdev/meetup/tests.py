@@ -34,28 +34,25 @@ class TestMeetups(TestCase):
         self.client = Client()
 
     def test_upcoming(self):
-        # requires login
-        response = self.client.get("/meetups/upcoming/")
-        self.assertEqual(response.status_code, 302)
-        # returns upcoming meetup list if user is authenticated
-        self.client.login(username='joe', password='password')
         response = self.client.get("/meetups/upcoming/")
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"Coders Lunch")
         self.assertContains(response,"123 Main Street")
+        self.assertContains(response,"3 coders")
 
     def test_details(self):
         meetup_url = self.test_meetup.get_absolute_url()
-        # requires login
-        response = self.client.get(meetup_url)
-        self.assertEqual(response.status_code, 302)
-        # returns meetup details if user is authenticated
-        self.client.login(username='joe', password='password')
+        # result contains meetup details without attendee list
         response = self.client.get(meetup_url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response,"Coders Lunch")
         self.assertContains(response,"123 Main Street")
-        self.assertContains(response,"3 attendees: jill + 2 guests")
+        self.assertContains(response,"3 coders")
+        self.assertNotContains(response,"jill + 2 guests")
+        # result contains meetup attendee list if user is authenticated
+        self.client.login(username='joe', password='password')
+        response = self.client.get(meetup_url)
+        self.assertContains(response,"jill + 2 guests")
 
     def test_rsvp(self):
         meetup_url = self.test_meetup.get_absolute_url()
