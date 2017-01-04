@@ -84,7 +84,7 @@ class TestMeetups(TestCase):
         # Verify that the subject and body of the first message is correct.
         self.assertEqual(
             mail.outbox[0].subject,
-            "New Meetup: Coders Lunch"
+            "Invitation: Coders Lunch"
         )
 
     def test_announcement_email_test(self):
