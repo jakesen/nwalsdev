@@ -1,0 +1,11 @@
+{{ site.name }} has Scheduled a New Meetup:
+{{ meetup.title }}
+http://{{ site.domain }}{{ meetup.get_absolute_url }}
+
+{{ meetup.description }}
+
+Where: {{ meetup.location.name }}, {{ meetup.location.full_address }}
+
+When: {{ meetup.start_time }}
+
+Who: {{ meetup.attendee_count }} attendees (RSVP at http://{{ site.domain }}{{ meetup.get_absolute_url }}rsvp/)
