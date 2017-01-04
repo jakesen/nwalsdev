@@ -22,7 +22,7 @@ if os.environ.has_key('DATABASE_URL'):
     EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD','')
     EMAIL_PORT = 587
     EMAIL_USE_TLS = True
-    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+    DEFAULT_FROM_EMAIL = "Northwest Alabama Software Developers <"+EMAIL_HOST_USER+">"
 else:
     DEBUG = True
     # database required for local dev
