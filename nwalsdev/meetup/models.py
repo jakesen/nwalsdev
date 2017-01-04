@@ -36,7 +36,7 @@ class Meetup(models.Model):
         email_count = 0
         for user in recipient_users:
             email = EmailMultiAlternatives(
-                "New Meetup: "+self.title,
+                "Invitation: "+self.title,
                 plain_body,
                 None, # use settings.DEFAULT_FROM_EMAIL
                 [user.email]

@@ -25,7 +25,7 @@ class TestNwalsdev(TestCase):
     def test_home_public(self):
         response = self.client.get("/")
         self.assertEqual(response.status_code, 200)
-        self.assertNotContains(response, "City Hardware")
+        self.assertContains(response, "City Hardware")
 
     def test_home_authenticated(self):
         self.client.login(username='joe', password='password')

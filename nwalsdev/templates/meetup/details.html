@@ -21,12 +21,19 @@
           <dt>When</dt>
           <dd>{{ meetup.start_time }}</dd>
           <dt>Who</dt>
-          <dd>{{ meetup.attendee_count }} attendees: {{ meetup.attendee_list|join:", " }}</dd>
+          <dd>
+            {{ meetup.attendee_count }} coders
+            {% if user.is_authenticated %}: {{ meetup.attendee_list|join:", " }}{% endif %}
+          </dd>
         </dl>
-        {% if user|attending:meetup %}
-          <p>You have <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP'd</a> to this meetup.</p>
+        {% if user.is_authenticated %}
+          {% if user|attending:meetup %}
+            <p>You have <a href="{{ meetup.get_absolute_url }}rsvp/" class="btn btn-default">RSVP'd</a> to this meetup.</p>
+          {% else %}
+            <p>Do you want to <a href="{{ meetup.get_absolute_url }}rsvp/" class="btn btn-default">RSVP</a>?</p>
+          {% endif %}
         {% else %}
-          <p>Do you want to <a href="{{ meetup.get_absolute_url }}rsvp/">RSVP?</a></p>
+          <p><a href="/account/login/?next={{ meetup.get_absolute_url }}" class="btn btn-default">Log In</a> to RSVP and see who is attending</p>
         {% endif %}
       </div>
     </section>
