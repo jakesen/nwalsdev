@@ -22,5 +22,6 @@ def test_announcement_email(modeladmin, request, queryset):
 test_announcement_email.short_description = "Test announcement email (send to admins)"
 
 class MeetupAdmin(admin.ModelAdmin):
+    list_display = ('title', 'start_time', 'location')
     actions = (send_announcement_email, test_announcement_email)
 admin.site.register(Meetup, MeetupAdmin)
