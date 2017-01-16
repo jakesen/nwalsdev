@@ -13,6 +13,9 @@ class Location(models.Model):
     city = models.CharField(max_length=254, blank=True)
     state = models.CharField(max_length=254, blank=True)
 
+    class Meta:
+        ordering = ["name"]
+
     def __str__(self):
         return self.name
 
@@ -25,6 +28,9 @@ class Meetup(models.Model):
     description = models.TextField(blank=True)
     location = models.ForeignKey(Location)
     start_time = models.DateTimeField()
+
+    class Meta:
+        ordering = ["-start_time"]
 
     def test_announcement_email(self):
         return self.send_announcement_email(User.objects.filter(is_superuser=True))
