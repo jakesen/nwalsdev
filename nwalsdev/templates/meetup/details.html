@@ -5,6 +5,13 @@
 
 {% block head_title %}{{ meetup.title }}{% endblock %}
 
+{% block extra_head %}
+  <meta property="og:title" content="{{ meetup.title }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://{{ site.domain }}{{ meetup.get_absolute_url }}" />
+  <meta property="og:description" content="{{ meetup.description }}" />
+{% endblock %}
+
 {% block body_class %}home{% endblock %}
 
 {% block body_base %}

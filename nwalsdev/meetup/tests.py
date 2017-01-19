@@ -1,5 +1,6 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
+from django.contrib.sites.models import Site
 from django.core import mail
 from nwalsdev.meetup.models import Location, Meetup, RSVP
 from datetime import timedelta
@@ -14,6 +15,7 @@ class TestMeetups(TestCase):
         test_location.save()
         self.test_meetup = Meetup(
             title="Coders Lunch",
+            description="Hang out, eat, discuss coding!",
             location=test_location,
             start_time=timezone.now()+timedelta(days=1)
         )
@@ -53,6 +55,11 @@ class TestMeetups(TestCase):
         self.client.login(username='joe', password='password')
         response = self.client.get(meetup_url)
         self.assertContains(response,"jill + 2 guests")
+        # result contains opengraph tags
+        self.assertContains(response,"<meta property=\"og:title\" content=\"Coders Lunch\" />")
+        self.assertContains(response,"<meta property=\"og:type\" content=\"website\" />")
+        self.assertContains(response,"<meta property=\"og:url\" content=\"http://example.com/meetups/1/\" />")
+        self.assertContains(response,"<meta property=\"og:description\" content=\"Hang out, eat, discuss coding!\" />")
 
     def test_rsvp(self):
         meetup_url = self.test_meetup.get_absolute_url()
