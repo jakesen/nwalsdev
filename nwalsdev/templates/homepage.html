@@ -32,7 +32,7 @@
     <section class="">
         <div class="container">
           <h2><a href="{{ meetup.get_absolute_url }}">{{ meetup.title }}</a></h2>
-          <p>{{ meetup.description }}</p>
+          <p>{{ meetup.description|linebreaksbr|urlize }}</p>
           <dl>
             <dt>Where</dt>
             <dd>

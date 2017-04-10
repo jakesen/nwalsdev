@@ -1,6 +1,6 @@
 <h3>{{ site.name }} has Scheduled a New Meetup:</h3>
 <h2><a href="http://{{ site.domain }}{{ meetup.get_absolute_url }}">{{ meetup.title }}</a></h2>
-<p>{{ meetup.description }}</p>
+<p>{{ meetup.description|linebreaksbr|urlize }}</p>
 <dl>
   <dt>Where</dt>
   <dd>
